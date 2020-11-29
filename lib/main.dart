@@ -13,9 +13,9 @@ class MyApp extends StatefulWidget {
 
 class _State extends State<MyApp> {
   String _value = "Hellow World";
-  void _onPressed() {
+  void _onPressed(String value) {
     setState(() {
-      _value = "My name is Bryan";
+      _value = value;
     });
   }
 
@@ -27,14 +27,16 @@ class _State extends State<MyApp> {
       ),
       body: new Container(
         padding: new EdgeInsets.all(32.0),
-        child: new Column(
-          children: <Widget>[
-            new Text(_value),
-            new RaisedButton(
-              onPressed: _onPressed,
-              child: new Text("Click me."),
-            )
-          ],
+        child: new Center(
+          child: new Column(
+            children: <Widget>[
+              new Text(_value),
+              new RaisedButton(
+                onPressed: () => _onPressed("Hello Bryan"),
+                child: new Text("Click me."),
+              )
+            ],
+          ),
         ),
       ),
     );
